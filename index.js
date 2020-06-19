@@ -14,8 +14,17 @@ app.get('/produtos', function (req, res) {
   res.json(produtos)
 })
 
-app.get('/terceirarota', function (req, res) {
-  res.send('terceirarota')
-})
+app.get('/produtos/:id', function (req, res) {
+  const { id } = req.params
 
-app.listen(3000)
+  const produto = produtos.find(function(el) {
+    return el.id == id
+  })
+
+  if (produto) {
+    res.json(produto)
+  } else {
+    res.status = 404
+    res.send("Não existe Produto om este id.")
+  }
+})
