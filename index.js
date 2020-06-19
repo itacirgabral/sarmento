@@ -28,3 +28,7 @@ app.get('/produtos/:id', function (req, res) {
     res.send("Não existe Produto om este id.")
   }
 })
+
+app.listen(3000, function () {
+  console.log("O servidor está no ar")
+})
