@@ -61,6 +61,25 @@ app.post('/produtos', bodyParser.json(), function (req, res) {
   }
 })
 
+app.delete('/produtos/:id', function (req, res) {
+  const { id } = req.params
+
+  const idx = produtos.findIndex(function(el) {
+    return el.id == id
+  })
+
+  if (idx < 0) {
+    res.status = 404
+    res.send("Não existe produto com este id.")
+  } else {
+    console.dir(produtos[idx])
+    produtos.splice(idx, 1)
+    res.status = 200
+    res.end()
+
+  }
+})
+
 app.listen(3000, function () {
   console.log("O servidor está no ar")
 })

@@ -1,22 +1,34 @@
-const produtos = [
-  {id: 1, nome: 'cafeteira', quantidade: 30, valorunitario: 500 },
-  {id: 2, nome: 'fogão', quantidade: 50, valorunitario: 700 },
-  {id: 3, nome: 'lavadoura', quantidade: 30, valorunitario: 600 }
-].map(({ id, nome, quantidade, valorunitario }) => {
-  const produto = { id, nome, quantidade, valorunitario}
-  produto.precototal = quantidade * valorunitario
-  produto.precovenda = valorunitario * 1.2
-  produto.lucro = valorunitario * 0.2
-
-  if (quantidade < 50) {
-    produto.situacao = 'estável'
-  } else if (quantidade < 100) {
-    produto.situacao = 'boa'
-  } else {
-    produto.situacao = 'excelente'
+const produtos =[
+  {
+    id: 1,
+    nome: 'cafeteira',
+    quantidade: 30,
+    valorunitario: 500,
+    precototal: 15000,
+    precovenda: 600,
+    lucro: 100,
+    situacao: 'estável'
+  },
+  {
+    id: 2,
+    nome: 'fogão',
+    quantidade: 50,
+    valorunitario: 700,
+    precototal: 35000,
+    precovenda: 840,
+    lucro: 140,
+    situacao: 'boa'
+  },
+  {
+    id: 3,
+    nome: 'lavadoura',
+    quantidade: 30,
+    valorunitario: 600,
+    precototal: 18000,
+    precovenda: 720,
+    lucro: 120,
+    situacao: 'estável'
   }
-
-  return produto
-})
+]
 
 module.exports = produtos
