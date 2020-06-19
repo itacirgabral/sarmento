@@ -1,7 +1,10 @@
 const express = require('express')
+const logs = require('./middleware/logs')
 const produtos = require('./produtos')
 
 const app = express()
+
+app.use(logs)
 
 app.get('/', function (req, res) {
   res.send('hello world')
