@@ -10,8 +10,8 @@ app.get('/', function (req, res) {
   res.send('hello world')
 })
 
-app.get('/segundarota', function (req, res) {
-  res.send('segundarota')
+app.get('/produtos', function (req, res) {
+  res.json(produtos)
 })
 
 app.get('/terceirarota', function (req, res) {
