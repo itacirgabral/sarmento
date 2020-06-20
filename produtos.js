@@ -7,7 +7,8 @@ const produtos =[
     precototal: 15000,
     precovenda: 600,
     lucro: 100,
-    situacao: 'estável'
+    situacao: 'estável',
+    complemento: []
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const produtos =[
     precototal: 35000,
     precovenda: 840,
     lucro: 140,
-    situacao: 'boa'
+    situacao: 'boa',
+    complemento: []
   },
   {
     id: 3,
@@ -27,7 +29,8 @@ const produtos =[
     precototal: 18000,
     precovenda: 720,
     lucro: 120,
-    situacao: 'estável'
+    situacao: 'estável',
+    complemento: []
   }
 ]
 

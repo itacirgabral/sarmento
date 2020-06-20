@@ -7,7 +7,6 @@ const produtos = require('./produtos')
 const app = express()
 
 app.use(logs)
-app.use(bodyParser.json())
 
 const situacao = n => n < 50 ? 'estável' : n < 100 ? 'boa': 'excelente';
 
@@ -57,7 +56,24 @@ app.post('/produtos', bodyParser.json(), function (req, res) {
   }
 })
 
-app.patch('/produtos/:id', function (req, res) {
+app.patch('/produtos/:id/complemento', bodyParser.text(), function (req, res) {
+  const { id } = req.params
+  const complemento = req.body
+
+  const produto = produtos.find(el => el.id == id)
+  if (produto) {
+    if (complemento.length > 0) {
+      produto.complemento.push(complemento)
+    }
+    res.json(produto)
+  } else {
+    res.status = 404
+    res.send("Não existe produto com este id")
+  }
+})
+
+
+app.patch('/produtos/:id', bodyParser.json(), function (req, res) {
   const { id } = req.params
   const { nome, quantidade, valorunitario } = req.body
 
